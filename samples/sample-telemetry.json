@@ -1,1 +1,13 @@
-
+{
+  "flowName": "FA_Demo_Reliability_Scaffold_v1",
+  "status": "Failed",
+  "correlationId": "12345-abc-98765-xyz",
+  "severity": "Error",
+  "runId": "0858493029485736251434",
+  "timestampUtc": "2026-06-09T07:15:00Z",
+  "errorDetails": {
+    "actionName": "fa_cmp_child_forceFailure",
+    "errorMessage": "Attempt to divide by zero",
+    "rawPayload": {}
+  }
+}
