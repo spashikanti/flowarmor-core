@@ -1,4 +1,5 @@
 # FlowArmor – Reliability Framework for Power Automate
+> ✅ Eliminates silent failures and enables traceable, production
 
 FlowArmor standardizes error handling, telemetry, correlation tracking, and failure propagation for Power Automate to eliminate silent failures and improve operational visibility.
 
@@ -7,7 +8,7 @@ FlowArmor standardizes error handling, telemetry, correlation tracking, and fail
 ## 📊 Outcomes at a Glance
 
 | Scenario | Without FlowArmor | With FlowArmor |
-| :--- | :--- | :--- |
+|----------|------------------|----------------|
 | **Failure Visibility** | ❌ Hidden (False Greens) | ✅ Explicit (Accurate Run History) |
 | **Error Structure** | ❌ Inconsistent / Raw Strings | ✅ Standardized JSON Schema |
 | **Debugging Process** | ❌ Manual Deep-Diving | ✅ Correlation-Id Tracing |
@@ -178,21 +179,27 @@ FlowArmor provides a reusable and standardized foundation for Power Automate rel
 
 Create a SharePoint list named `FA_Telemetry_Log` with the following columns:
 
-| Column Name | Type | Purpose |
-| :--- | :--- | :--- |
-| **Title** | Single Line of Text | Maps to `FlowName` |
-| **CorrelationId** | Single Line of Text | Indexed tracking key for distributed tracing |
-| **Status** | Choice (`Success`, `Failed`) | High-level execution outcome |
-| **Severity** | Choice (`Information`, `Warning`, `Error`) | Log filtering priority |
-| **TimestampUtc** | Date and Time | Exact execution time |
-| **RawTelemetry** | Multiple Lines of Text (Plain) | **Crucial:** Stores the complete, schema-agnostic JSON payload |
+| Column Name     | Type                                 | Purpose |
+|----------------|--------------------------------------|--------|
+| Title          | Single Line of Text                  | Stores Flow Name |
+| CorrelationId  | Single Line of Text                  | Tracking key for distributed tracing |
+| Status         | Choice (`Success`, `Failed`)         | Execution outcome |
+| Severity       | Choice (`Info`, `Warning`, `Error`) | Log priority |
+| ActionName     | Single Line of Text                  | Failing action identification |
+| ErrorMessage   | Multiple Lines of Text               | Captured error message |
+| RunId          | Single Line of Text                  | Flow run identifier |
+| TimestampUtc   | Date and Time                        | Execution timestamp |
+| DurationMs     | Number                               | Execution duration |
+
+> ℹ️ **Design Note:**
+> This version of FlowArmor uses a structured column-based logging model for readability. Future versions will support a hybrid model with raw JSON telemetry for advanced analytics and extensibility.
 
 ---
 
 ## 🧪 Standardized Telemetry Schema
 
 
-The framework natively constructs and emits a structured contract to your RawTelemetry sink.
+The framework natively constructs and emits a structured telemetry contract to the configured logging sink.
 
 *   **On Success:** The errorDetails object defaults to null.
     
@@ -290,6 +297,7 @@ Contributions, issue tracking, and architectural suggestions are welcome! Please
 
 
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
 
 ### 📝 Final Launch Check for You:
 
