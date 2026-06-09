@@ -98,13 +98,14 @@ FlowArmor introduces a standardized reliability and observability pattern for Po
 
 ## 🔗 Data Flow Summary
 
-
-Flow Execution 
-↓ 
-Error Handling 
-↓
+```
+Flow Execution
+    ↓
+Error Handling
+    ↓
 Telemetry Generation
-↓
+    ↓
 External Storage (SharePoint)
-↓
+    ↓
 Monitoring / Analytics / Alerts
+```
