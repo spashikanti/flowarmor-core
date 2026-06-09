@@ -120,6 +120,18 @@ FlowArmor provides a reusable and standardized foundation for Power Automate rel
 
 ---
 
+## 🖼️ Sample Output
+
+### ✅ SharePoint Telemetry Log
+
+![SharePoint Telemetry Log](./docs/images/sharepoint-log.png)
+
+### ✅ Flow Run Results (No Silent Failures)
+
+![Flow Run History](./docs/images/flow-run.png)
+
+---
+
 ## 🧭 Architecture & Data Lifecycle
 
 ```text
@@ -251,6 +263,23 @@ FlowArmor enforces strict **Separation of Concerns (SoC)** based on modern ITIL 
 *   **The Generation Principle:** The workflow's job is solely to capture, format, and emit standard telemetry.
     
 *   **The Consumption Principle:** External systems consume the telemetry asynchronously. The core execution loop never handles alerting logic directly (preventing notification spam and API throttling).
+
+---
+
+### ⚠️ Important Design Rule: Child Flow Behavior
+
+In FlowArmor, child flows are designed to **always return a response to the parent flow**, even when an error occurs.
+
+- Child flows capture and normalize errors internally  
+- They return structured telemetry instead of failing abruptly  
+- The parent flow determines the final outcome using `varHasFailure`
+
+✅ This ensures:
+- Complete telemetry capture  
+- Consistent failure handling  
+- Proper parent-level failure signaling  
+
+> The parent flow is the single source of truth for final execution status.
 
 ---
 
