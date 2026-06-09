@@ -1,7 +1,24 @@
 # FlowArmor – Reliability Framework for Power Automate
 > ✅ Eliminates silent failures and enables traceable, production
 
+
 FlowArmor standardizes error handling, telemetry, correlation tracking, and failure propagation for Power Automate to eliminate silent failures and improve operational visibility.
+
+![Microsoft Community](https://img.shields.io/badge/Microsoft%20Community-Super%20User-orange?style=for-the-badge&logo=microsoft)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![Power Platform](https://img.shields.io/badge/Platform-Power%20Platform-blue?style=for-the-badge&logo=power-platform)
+![TYPE](https://img.shields.io/badge/TYPE-FRAMEWORK-orange?style=for-the-badge)
+
+---
+
+## 🚀 Get Started
+
+**Download the latest Power Platform solution package (ZIP):**
+
+[![Download ZIP](https://img.shields.io/badge/Download-Solution-blue?style=for-the-badge&logo=github)](https://github.com/spashikanti/flowarmor-core/releases/latest)
+[![Release](https://img.shields.io/github/v/release/spashikanti/flowarmor-core?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/spashikanti/flowarmor-core/releases/latest)
+[![Total Downloads](https://img.shields.io/github/downloads/spashikanti/flowarmor-core/total?style=for-the-badge&color=yellow)](https://github.com/spashikanti/flowarmor-core/releases)
+![STATUS](https://img.shields.io/badge/STATUS-STABLE-success?style=for-the-badge)
 
 ---
 
